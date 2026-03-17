@@ -52,11 +52,10 @@ const std::array<TestType, 8> kTestParam = {
     TestType{{7, 7, 7, 7}, {7, 7, 7, 7}, "Duplicates"},
     TestType{{9, 0, 8, 1, 7, 2, 6, 3}, {0, 1, 2, 3, 6, 7, 8, 9}, "EvenOddLength"}};
 
-const auto kTestTasksList = std::tuple_cat(
-    ppc::util::AddFuncTask<OvchinnikovMShellSortBatcherMergeSEQ, InType>(
-        kTestParam, PPC_SETTINGS_ovchinnikov_m_shell_sort_batcher_merge),
-    ppc::util::AddFuncTask<OvchinnikovMShellSortBatcherMergeOMP, InType>(
-        kTestParam, PPC_SETTINGS_ovchinnikov_m_shell_sort_batcher_merge));
+const auto kTestTasksList = std::tuple_cat(ppc::util::AddFuncTask<OvchinnikovMShellSortBatcherMergeSEQ, InType>(
+                                               kTestParam, PPC_SETTINGS_ovchinnikov_m_shell_sort_batcher_merge),
+                                           ppc::util::AddFuncTask<OvchinnikovMShellSortBatcherMergeOMP, InType>(
+                                               kTestParam, PPC_SETTINGS_ovchinnikov_m_shell_sort_batcher_merge));
 
 const auto kGtestValues = ppc::util::ExpandToValues(kTestTasksList);
 
