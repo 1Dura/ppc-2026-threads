@@ -167,8 +167,8 @@ bool OvchinnikovMShellSortBatcherMergeOMP::RunImpl() {
   data_.resize(padded_size, std::numeric_limits<int>::max());
 
   auto halves = SplitInHalf(data_);
-  `r`n auto &left = halves.first;
-  `r`n auto &right = halves.second;
+  auto &left = halves.first;
+  auto &right = halves.second;
 
 #pragma omp parallel sections
   {
